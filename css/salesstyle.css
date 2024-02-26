@@ -1,0 +1,58 @@
+.righteous-regular {
+  font-family: "Righteous", sans-serif;
+  font-weight: 400;
+}
+
+
+header {
+  background-color: black;
+  padding: 50px;
+  color: salmon;
+  font-style: italic;
+  text-align: center;
+  font-size: 3.5em;
+  font-family: "Righteous", sans-serif;
+  width: 100%;
+
+}
+
+nav {
+  background-color: salmon;
+  padding: 12px;
+  width: 100%;
+}
+
+nav a {
+  padding: 10px;
+  margin-right: 20px;
+
+}
+
+ul {
+  list-style-type: none;
+  margin-left: 40px;
+  margin-bottom: 20px;
+}
+
+li {
+  margin-bottom: 5px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif
+}
+
+.city-name {
+  font-family: "Righteous", sans-serif;
+  font-size: 2em;
+  margin-bottom: 2px;
+  margin-left: 20px;
+  margin-top: 5px;
+}
+
+footer {
+  text-align: center;
+  background-color: lightgray;
+  padding: 50px;
+}
+
+main {
+  padding: 20px;
+}
