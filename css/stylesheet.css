@@ -40,29 +40,34 @@ img {
   margin-right: auto;
 }
 
-ul {
-  list-style-type: none;
+/* Style for the container div */
+/* Style for the container div */
+.city-info-container {
+  margin-top: 20px;
 }
 
-
-ul {
-  list-style-type: none;
-  margin-left: 40px;
-  margin-bottom: 20px;
+.city-info {
+  border-bottom: none; /* Remove bottom border */
+  padding: 10px 0;
+  margin-left: 100px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
-li {
-  margin-bottom: 5px;
-  font-family: Verdana, Geneva, Tahoma, sans-serif
+.no-border-top {
+  border-top: none;
 }
 
-.city-name {
-  font-family: "Righteous", sans-serif;
+.city-info p {
+  margin: 5px 0;
+}
+
+/* Style only the city name */
+.city-info .city-name {
+  font-family: "Righteous", sans-serif; /* Desired font for city names */
+  margin-left: -40px;
   font-size: 2em;
-  margin-bottom: 2px;
-  margin-left: 20px;
-  margin-top: 5px;
 }
+
 
 footer {
   text-align: center;

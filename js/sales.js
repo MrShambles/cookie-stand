@@ -71,27 +71,6 @@ function createHeaderRow(tableHeader) {
 
   let thTotal = document.createElement('th');
   thTotal.textContent = 'Location Totals';
-  headerRow.appendChild(thTotal);
-
-  tableHeader.appendChild(headerRow);
-}
-
-// Function to create and append header row to the table
-function createHeaderRow(tableHeader) {
-  let headerRow = document.createElement('tr');
-  let headerHours = document.createElement('th');
-  headerHours.textContent = 'Locations';
-  headerRow.appendChild(headerHours);
-
-  let hours = tokyo.hours.split(', ');
-  hours.forEach(hour => {
-    let th = document.createElement('th');
-    th.textContent = hour;
-    headerRow.appendChild(th);
-  });
-
-  let thTotal = document.createElement('th');
-  thTotal.textContent = 'Location Totals';
   thTotal.classList.add('grey-column'); // Add class to identify last column header cell
   headerRow.appendChild(thTotal);
 
