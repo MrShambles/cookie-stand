@@ -53,8 +53,96 @@ footer {
   text-align: center;
   background-color: lightgray;
   padding: 50px;
+  margin-top: 20px;
 }
 
 main {
   padding: 20px;
 }
+
+/* styles.css */
+
+/* Style for the table */
+table {
+  width: 75%; /* Adjust the width as needed */
+  margin: 0 auto; /* Center the table horizontally */
+  border-collapse: collapse;
+  background-color: salmon; /* Set the background color of the table body */
+}
+
+/* Style for table header and body */
+td, th {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* Style for header row */
+thead th {
+  background-color: grey;
+  color: white; /* Set the text color */
+  border: none;
+}
+
+/* Style for footer row */
+tfoot {
+  background-color: grey; /* Change color as desired */
+  color: white;
+}
+
+tfoot th {
+  padding: 8px;
+}
+
+tfoot td {
+  border: none; /* Remove border for footer cells */
+  padding: 8px;
+}
+
+/* Style for Location Totals column */
+.location-totals {
+  background-color: grey;
+  color: white;
+}
+
+/* Style for store names */
+.city-name {
+  font-weight: bold;
+  text-align: left;
+}
+
+/* Style for top row */
+tr:first-child th {
+  background-color: grey;
+}
+
+/* Style for bottom row */
+tr:last-child th {
+  background-color: grey;
+}
+
+/* Style for the last column cells */
+td:last-child,
+th:last-child {
+  background-color: grey; /* Grey color */
+  border: none;
+  color: white;
+}
+
+/* Style for city name cells */
+td:first-child {
+  text-align: left; /* Align text to the left */
+}
+
+
+
+
+
+
+
+
+
+
+
+
