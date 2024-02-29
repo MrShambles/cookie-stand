@@ -62,7 +62,7 @@ function createHeaderRow(tableHeader) {
   headerHours.textContent = 'Locations';
   headerRow.appendChild(headerHours);
 
-  let hours = tokyo.hours.split(', ');
+  let hours = '6am, 7am, 8am, 9am, 10am, 11am, 12pm, 1pm, 2pm, 3pm, 4pm, 5pm, 6pm, 7pm'.split(', ');
   hours.forEach(hour => {
     let th = document.createElement('th');
     th.textContent = hour;
@@ -85,17 +85,7 @@ function createFooterRow(tableFooter) {
   footerRow.appendChild(footerTotal);
 
   // Initialize an array to store the hourly totals for all stores
-  let hourlyTotals = new Array(14).fill(0);
-
-  // Iterate through each store
-  for (let city in totalCookiesPerCity) {
-    let storeData = totalCookiesPerCity[city];
-    // Iterate through each hour's data for the store
-    for (let i = 0; i < storeData.length; i++) {
-      // Add the hourly total to the corresponding index in the array
-      hourlyTotals[i] += storeData[i];
-    }
-  }
+  let hourlyTotals = calculateTotalCookies();
 
   // Add the hourly totals to the footer row
   hourlyTotals.forEach(total => {
@@ -120,11 +110,67 @@ function createFooterRow(tableFooter) {
   });
 }
 
+// Function to update the footer row content
+function updateFooterContent() {
+  let footerRow = tableFooter.querySelector('tr');
+  footerTotal.textContent = "Hourly Total for All Locations";
+  let hourlyTotals = calculateTotalCookies();
 
+  // Update the hourly totals in the footer row
+  footerRow.querySelectorAll('td:not(:last-child)').forEach((td, index) => {
+    td.textContent = hourlyTotals[index];
+  });
+
+  // Calculate and update the grand total
+  let grandTotal = hourlyTotals.reduce((acc, curr) => acc + curr, 0);
+  footerRow.querySelector('td:last-child').textContent = grandTotal;
+}
+
+// Event listener for form submission
+document.getElementById('new-store-form').addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent default form submission behavior
+
+  // Retrieve form data
+  let formData = new FormData(event.target);
+
+  let storeName = formData.get('store-name');
+  let minCustomers = parseInt(formData.get('min-customers'));
+  let maxCustomers = parseInt(formData.get('max-customers'));
+  let avgSale = parseFloat(formData.get('avg-sale'));
+
+  // Create a new instance of SalmonCookieStand
+  let newStore = new SalmonCookieStand(storeName, null, null, "6am, 7am, 8am, 9am, 10am, 11am, 12pm, 1pm, 2pm, 3pm, 4pm, 5pm, 6pm, 7pm", minCustomers, maxCustomers, avgSale); // Set phone, location, and hours as null
+
+  // Simulate cookies purchased for the new store and store the data
+  newStore.simulateCookiesPurchased();
+
+  // Render the new store row in the table body
+  newStore.render(tableBody);
+
+  // Update the footer content
+  updateFooterContent();
+});
 
 // Function to get a random number between a given range
 function getRandomNumberBetween(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
+}
+
+// Function to calculate the total cookies sold for all hours across all stores
+function calculateTotalCookies() {
+  let hourlyTotals = new Array(14).fill(0);
+
+  // Iterate through each store
+  for (let city in totalCookiesPerCity) {
+    let storeData = totalCookiesPerCity[city];
+    // Iterate through each hour's data for the store
+    for (let i = 0; i < storeData.length; i++) {
+      // Add the hourly total to the corresponding index in the array
+      hourlyTotals[i] += storeData[i];
+    }
+  }
+
+  return hourlyTotals;
 }
 
 // Define the total cookies sold per city object
