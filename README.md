@@ -11,3 +11,6 @@
 
 ### Wednesday Report is the same as Tuesday
 
+## Thursday LightHouse Test
+
+![LightHouse Test](./img/class09.PNG)
